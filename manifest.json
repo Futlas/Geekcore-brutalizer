@@ -14,5 +14,10 @@
             ],
             "run_at": "document_start"
         }
-    ]
+    ],
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "brutalizer@geekcore.local"
+        }
+    }
 }
