@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "Geekcore Brutalizer Ultimate",
+    "version": "1.0.0",
+    "description": "Срывает корпоративный глянец с веба. Глобальный моноширинный JetBrains стиль и Arasaka-HUD для GitHub и Wikipedia.",
+    "author": "Futlas",
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "css": [
+                "brutal.css"
+            ],
+            "run_at": "document_start"
+        }
+    ]
+}

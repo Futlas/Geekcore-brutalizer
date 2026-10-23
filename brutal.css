@@ -1,0 +1,130 @@
+/* ==========================================================================
+   ЧАСТЬ 1: ГЛОБАЛЬНЫЙ БРУТАЛИЗМ ДЛЯ ВСЕХ САЙТОВ (Шрифт, Углы, ЭЛТ-сетка)
+   ========================================================================= */
+*:not([class*="fa-"]):not([class*="fa"]):not(i):not([class*="icon"]) {
+    border-radius: 0px !important;
+    font-family: 'JetBrainsMonoNLNerdFont-ExtraBold', 'JetBrains Mono NL', 'JetBrains Mono', Monaco, monospace !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+}
+
+img,
+svg {
+    border-radius: 0px !important;
+}
+
+/* Накладываем общую сетку ЭЛТ-монитора на весь веб */
+html::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.12) 50%),
+        linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+    z-index: 9999999;
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+}
+
+/* ГЛОБАЛЬНЫЙ ФИКС: Все ссылки в интернете принудительно становятся красными */
+a,
+a *,
+.mw-body a,
+#content a {
+    color: #ff0055 !important;
+    text-decoration: none !important;
+    background-color: transparent !important;
+}
+
+/* Глобальный hover-эффект для ссылок */
+a:hover,
+a:hover *,
+.mw-body a:hover,
+#content a:hover {
+    background-color: #00ff00 !important;
+    color: #000000 !important;
+}
+
+/* ==========================================================================
+   ЧАСТЬ 2: УЛЬТИМАТИВНЫЙ АРАСАКА-HUD ДЛЯ GITHUB И WIKIPEDIA
+   ========================================================================= */
+
+/* Жесткое определение доменов по атрибутам */
+html[data-color-mode],
+body.logged-in,
+body.mediawiki,
+#content {
+    background-color: #060608 !important;
+}
+
+/* Перекрашиваем внутренние элементы, исключая ссылки, чтобы они не ломали цвета */
+html[data-color-mode] *:not(a):not(a *),
+body.logged-in *:not(a):not(a *),
+body.mediawiki *:not(a):not(a *),
+#content *:not(a):not(a *) {
+    background-color: #060608 !important;
+    color: #cccccc !important;
+}
+
+/* Ультимтивный фикс зеленых/синих ссылок GitHub (перебиваем внутренние переменные) */
+html[data-color-mode] a,
+html[data-color-mode] a *,
+html[data-color-mode] [class*="Link"],
+html[data-color-mode] .feed-item a {
+    color: #ff0055 !important;
+    --color-accent-fg: #ff0055 !important;
+    --color-fg-accent: #ff0055 !important;
+}
+
+/* Прорисовка полупрозрачных бордовых границ карточек проекта и таблиц */
+html[data-color-mode] div[class*="box"],
+html[data-color-mode] div[class*="card"],
+html[data-color-mode] table,
+html[data-color-mode] tr,
+html[data-color-mode] li,
+body.mediawiki .mw-sidebar,
+body.mediawiki table,
+body.mediawiki tr,
+body.mediawiki td,
+body.mediawiki .infobox {
+    border: 1px solid rgba(255, 0, 85, 0.25) !important;
+}
+
+/* Выделяем левую грань крупных блоков на GitHub для структуры */
+html[data-color-mode] .Box,
+html[data-color-mode] div[class*="container"],
+html[data-color-mode] .js-navigation-item,
+html[data-color-mode] [class*="feed-item"] {
+    border-left: 3px solid #ff0055 !important;
+}
+
+/* Рамки для кнопок верхнего меню */
+html[data-color-mode] .UnderlineNav-item,
+html[data-color-mode] button,
+html[data-color-mode] [class*="btn"] {
+    border: 1px solid rgba(255, 0, 85, 0.4) !important;
+    padding: 3px 10px !important;
+}
+
+/* Фикс белого прямоугольника Википедии */
+body.mediawiki .mw-wiki-logo,
+body.mediawiki [class*="logo"] {
+    background-color: transparent !important;
+    filter: invert(1) brightness(1.3) !important;
+}
+
+/* При наведении на пункты меню загорается неоновая рамка */
+html[data-color-mode] .UnderlineNav-item:hover,
+html[data-color-mode] .js-navigation-item:hover,
+html[data-color-mode] button:hover,
+html[data-color-mode] [class*="btn"]:hover,
+html[data-color-mode] a:hover * {
+    border-color: #33ff33 !important;
+    color: #33ff33 !important;
+    background-color: rgba(51, 255, 51, 0.05) !important;
+}
